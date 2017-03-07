@@ -1,0 +1,20 @@
+<input id="bt" type="button" value="imagen">
+<img src="data:image/png;base64," id="imagen" width="200"/>
+<script src="../actividades/estilo/vendor/jquery/jquery.min.js"></script>
+<script>
+    (function() {
+        $('#bt').on('click', function(){
+            $.ajax({
+                url: 'getimage.php',
+                data: {
+                    id: 2
+                },
+                type: 'GET',
+                dataType: 'json'
+            }).done(function(json) {
+                $('#imagen').attr('src', "data:image/png;base64," + json.imagen )
+                //alert(objetoJson);
+            });
+        });
+    }());
+</script>

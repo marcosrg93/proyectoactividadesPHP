@@ -1,0 +1,351 @@
+@import url("css/bootstrap.min.css");
+@import url("css/font-awesome.min.css");
+@import url("css/animate.min.css");
+@import url("css/owl.carousel.css");
+@import url("css/owl.transitions.css");
+@import url("css/main.css");
+@import url("css/prettyPhoto.css");
+@import url("css/responsive.css");
+.logo {
+    padding: 15px 15px !important;
+}
+
+.logo img {
+    width: 50%;
+}
+
+
+/*Plantilla search.php*/
+
+.texto_buscado {
+    color: #337ab7;
+}
+
+.busqueda {
+    margin-top: 20px;
+}
+
+
+/*color de la fecha*/
+
+.fecha {
+    color: #45aed6;
+}
+
+/*Fondo de plantilla de error*/
+.error{
+    background-image: url(images/error404.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 900px;
+}
+
+/*Hover arreglado para que no cambie cuando pasamos sobre los div de la front-page*/
+.hover_fix:hover{
+    cursor: default;
+}
+
+/*Enlaces de la paginación dentrados*/
+.pagination{
+    margin-left: 50%;
+}
+
+/******************************************************************************* Sidebar  ****************************************************************************/
+.widget.categories{
+    margin-top: 10%;
+}
+
+/* Formulario de Busqueda */
+.search_box {
+    height: 43px !important;
+}
+
+.widget h2{
+     font-size: 24px;
+}
+
+/* calendar widget */
+#wp-calendar {
+	width: 100%;
+	max-width: 37.5rem;
+	background: #ccc;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#wp-calendar caption {
+	background: #3299bb;
+	color: #fff;
+	padding: 1.25rem;
+	text-align: center;
+}
+
+#wp-calendar thead tr {
+	border-right: 1px solid #ccc;
+}
+
+#wp-calendar thead th {
+	font-size: 90%;
+	font-weight: bold;
+	padding: 1.25rem;
+	background: #ccc;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#wp-calendar tbody td {
+	position: relative;
+	padding: 1.125rem;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #fff;
+}
+
+#wp-calendar tbody td.pad {
+	opacity: 0.7;
+}
+
+#wp-calendar tbody td#today {
+	font-weight: bold;
+}
+
+#wp-calendar tbody td#today:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	border-top: 10px solid #999;
+	border-left: 10px solid transparent;
+}
+
+#wp-calendar tbody td a {
+	display: block;
+	background: rgba(50, 153, 187, 0.2);
+}
+
+#wp-calendar tbody td a:hover {
+	background: #3299bb;
+	color: #fff;
+}
+
+#wp-calendar tfoot tr {
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid #ccc;
+}
+
+#wp-calendar tfoot tr td {
+	border: 0;
+	padding: 0;
+}
+
+#wp-calendar tfoot tr a {
+	display: block;
+	padding: 0.25rem 0.75rem;
+}
+
+#wp-calendar tfoot tr a:hover {
+	background: #fff;
+}
+
+#wp-calendar tfoot tr #prev {
+	text-align: left;
+}
+
+#wp-calendar tfoot tr #next {
+	text-align: right;
+}
+
+
+/*Tags*/
+.tagcloud a {
+    font-size: 14px;
+    font-family: 'Montserrat-Light', sans-serif;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #303030;
+    text-transform: capitalize;
+    border: 1px solid #cccccc;
+    padding: 5px 11px;
+    margin-right: 5px;
+    background-color: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.tagcloud a:hover {
+    background-color: #45aed6;
+    color: #fff!important;
+}
+
+/* listas del sidebar*/
+.lista-sidebar span {
+    font-size: 14px;
+    font-family: 'Montserrat-Light', sans-serif;
+    font-weight: 300;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #606060;
+    float: right;
+}
+
+.lista-sidebar li {
+    width: 100%;
+    margin: 0;
+    padding: 10px 0px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.lista-sidebar li a {
+    color: #424242;
+    text-transform: capitalize;
+}
+
+.lista-sidebar li a:hover {
+    color: #337ab7;
+}
+
+
+/*Unordered Lists*/
+
+ul.arrow,
+ul.arrow-double,
+ul.tick,
+ul.cross,
+ul.star,
+ul.rss {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.arrow li::before,
+ul.arrow-double li::before,
+ul.check li::before,
+ul.arrow li::after,
+ul.arrow-double li::after,
+ul.check li::after {
+    font-family: FontAwesome;
+    font-size: 11px;
+}
+
+ul.arrow li::before,
+ul.arrow-double li::before,
+ul.tick li::before,
+ul.cross li::before,
+ul.star li::before,
+ul.rss li::before {
+    margin-right: 5px;
+}
+
+ul.arrow li::before {
+    content: "\f105";
+}
+
+ul.arrow-double li::before {
+    content: "\f101";
+}
+
+ul.check li::before {
+    content: "\f00c";
+}
+
+
+/* PreFooter*/
+.sidebar-footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #fff;
+    background: #383838;
+}
+
+
+
+.sidebar-footer h2 {
+    font-size: 24px;
+    color: #fff;
+}
+
+.sidebar-footer h3 {
+    color: #fff;
+}
+
+
+/*.sidebar-footer a{*/
+
+
+/*    color: #fff;*/
+
+
+/*}*/
+
+
+/*.sidebar-footer a:hover{*/
+
+
+/*     color: #45aed6;*/
+
+
+/*}*/
+
+
+
+/*estilos de comentarios*/
+
+.comment-style{
+    width: 49%;
+    float: left;
+}
+
+.margen{
+    margin-left:1%;
+}
+
+.margen-arriba{
+    margin-top:5%;
+}
+
+textarea {
+    resize: none;
+}
+
+ul{
+    list-style:none;
+}
+
+.canvasSkill{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.canvasSkill div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.canvasSkill div div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.canvasSkill div div canvas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.canvasSkill div div strong{
+    text-align: center;
+}
+
+.widthcanvas{
+    min-width: 350px;
+    width: 100%;
+}

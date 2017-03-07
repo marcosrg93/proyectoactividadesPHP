@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: multischool\n"
+"POT-Creation-Date: 2017-03-05 19:51+0100\n"
+"PO-Revision-Date: 2017-03-05 20:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: multischool <multischool@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n;_\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: css\n"
+"X-Poedit-SearchPathExcluded-1: fonts\n"
+"X-Poedit-SearchPathExcluded-2: images\n"
+"X-Poedit-SearchPathExcluded-3: js\n"
+
+#: archive.php:19
+#, php-format
+msgid "<h3>Archivos por categoría: %s"
+msgstr "<h3>Files by category: %s"
+
+#: archive.php:21
+#, php-format
+msgid "<h3>Archivos por etiqueta: %s"
+msgstr "<h3> Files by tag:% s"
+
+#: archive.php:24
+#, php-format
+msgid "<h3>Archivos por autor: %s"
+msgstr "<h3> Files by author:% s"
+
+#: archive.php:27 archive.php:31
+#, php-format
+msgid "<h3>Diario: %s"
+msgstr "<h3>Daily: %s"
+
+#: archive.php:29
+#, php-format
+msgid "<h3>Mensual: %s"
+msgstr "<h3> Monthly:% s"
+
+#: archive.php:33
+msgid "··· Archivos: ···"
+msgstr "··· Archives: ···"
+
+#: author.php:81
+msgid " Posts"
+msgstr ""
+
+#: author.php:83
+msgid " Post"
+msgstr ""
+
+#: author.php:85
+msgid "No Post"
+msgstr ""
+
+#: comments.php:34
+msgid "Escribe tu opinion:"
+msgstr ""
+"Resultados de la búsqueda\n"
+"\n"
+"Escribe tu opinion: Editar\n"
+"\n"
+"Quizás quisiste decir Escribe tu opinión:"
+
+#: comments.php:35
+msgid "Comentario"
+msgstr "Commentary"
+
+#: functions.php:174
+msgid "Sidebar Widgets"
+msgstr ""
+
+#: functions.php:176
+msgid "Sidebar Widget Area"
+msgstr ""
+
+#: functions.php:183
+msgid "Footer Widgets"
+msgstr ""
+
+#: functions.php:185
+msgid "Footer Widget Area"
+msgstr ""
+
+#: search.php:29
+#, php-format
+msgid "Resultados de: %s"
+msgstr "Results for:% s"
+
+#: template-part/blog-des.php:13
+msgid "Leer más"
+msgstr "Read More"
+
+#: template-part/last-post.php:23
+msgid "No hay entradas.Intenta crear una."
+msgstr "No entries. Try to create one."
+
+#~ msgid "<h3>Daily: %s"
+#~ msgstr "<h3>Daily: %s"

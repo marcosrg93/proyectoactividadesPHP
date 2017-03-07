@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Actividades Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="estilo/vendor/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+    <!-- MetisMenu CSS -->
+    <link href="estilo/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="estilo/dist/css/sb-admin-2.css" rel="stylesheet" />
+
+
+    <!-- DataTables CSS -->
+    <link href="estilo/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- DataTables Responsive CSS -->
+    <link href="estilo/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Loading Screen -->
+    <link href="estilo/loading.css" rel="stylesheet" type="text/css" />
+
+    <!-- Mapas -->
+    <link href="estilo/mapas.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p id="welcome" class="navbar-brand">Actividades Admin </p>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a id="user-name" class="btPerfil" href="#"></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a id="btLogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <!--<li class="sidebar-search">-->
+                        <!--    <div class="input-group custom-search-form">-->
+                        <!--        <input type="text" class="form-control" placeholder="Search...">-->
+                        <!--        <span class="input-group-btn">-->
+                        <!--            <button class="btn btn-default" type="button">-->
+                        <!--                <i class="fa fa-search"></i>-->
+                        <!--            </button>-->
+                        <!--        </span>-->
+                        <!--    </div>-->
+                            <!-- /input-group -->
+                        <!--</li>-->
+                        <li>
+                            <a id="btActividad"><i class="fa fa-envira fa-fw"></i> Actividades</a>
+                        </li>
+                        <li>
+                            <a id="btGrupos"><i class="fa fa-users fa-fw"></i> Grupos</a>
+                        </li>
+                        <li>
+                            <a id="btPerfil" class="btPerfil"><i class="fa fa-user fa-fw"></i> Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+                <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div id="loading" class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 id="titulo-pagina" class="page-header"></h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Tabla
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div id="tabladatos" class="panel-body table-responsive">
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModalInsertprofesor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Añadir Profesor</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input id="addNombre" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>DNI</label>
+                                            <input id="addDni" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            <input id="addDepartamento" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input id="addPass" type="password" class="form-control">
+                                            <p class="help-block">Introduce la contraseña</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Repite Contraseña</label>
+                                            <input id="addRPass" type="password" class="form-control">
+                                            <p class="help-block">Repite la contraseña</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary btadd">Añadir Profesor</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModalprofesor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input id="ednombre" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>DNI</label>
+                                            <input id="eddni" class="form-control" disabled>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            <input id="eddepartamento" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nueva Contraseña</label>
+                                            <input id="edNpass" type="password" class="form-control">
+                                            <p class="help-block">Introduce la nueva contraseña</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Repite Contraseña</label>
+                                            <input id="edrNpass" type="password" class="form-control">
+                                            <p class="help-block">Repite la nueva contraseña</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button data-idmodificar="Hola" type="button" class="btn btn-primary editar">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModalgrupo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Editar Grupo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <select id="edNombreg" class="form-control">
+                                                
+                                            </select>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nivel</label>
+                                            <input id="ednivel" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button data-idmodificar="Hola" type="button" class="btn btn-primary editar">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModalInsertgrupo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Añadir Grupo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type="text" name="addNombreg" id="addNombreg" class="form-control"/>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nivel</label>
+                                            <input id="addNivel" class="form-control">
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary btadd">Añadir Grupo</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModalactividades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Editar Actividad</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="edFormAct">   
+                                            <input type="hidden" id="edIdActividadaAct" name="idActividades" />
+                                            <input type="hidden" name="ruta" value="actividades"/>
+                                            <input type="hidden" name="accion" value="editActividades"/>
+                                            <!--<input type="hidden" id="edIdProfesorAct" name="idProfesor" />-->
+                                            <!--<input type="hidden" id="edIdGrupoAct" name="idGrupo" />-->
+                                            <div class="form-group">
+                                                <label>Titulo</label>
+                                                <input id="edTituloAct" class="form-control" name="titulo">
+                                                <p class="help-block"></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Grupos</label>
+                                                <select id="edListaGruposAct" name="idGrupo" class="form-control">
+                                                  
+                                                </select>
+                                                <p class="help-block"></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Profesores</label>
+                                                <select id="edListaProfesoresAct" name="idProfesor" class="form-control">
+                                                  
+                                                </select>
+                                                <p class="help-block"></p>
+                                            </div>
+                                            <div class="form-group">
+                                                 <label>Fecha de Inicio</label>
+                                                <div class='input-group date' id='datetimepicker6'>
+                                                    <input type='text' class="form-control" name="horaInicio"/>
+                                                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fecha de Fin</label>
+                                                <div class='input-group date' id='datetimepicker7'>
+                                                    <input type='text' class="form-control" name="horaFinal"/>
+                                                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Imagen</label>
+                                                <img id="imagenAct" class="img-responsive" src="" />
+                                                <input type="file" id="edFileAct" class="form-control" name="imagen"/>
+                                                <p class="help-block"></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Mapa</label>
+                                                <div id="mapaModal" >
+    
+                                                </div>
+                                                <input type="hidden" id="edLatitudAct"  name="latitud"/>
+                                                <input type="hidden" id="edLongitudAct"  name="longitud"/>
+                                                <p class="help-block"></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Descripcion</label>
+                                                <textarea id="edDescripcionAct" name="descripcion" class="form-control" cols="50" row="8" aria-required="true">
+                                                
+                                                </textarea>
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button data-idmodificar="Hola" type="button" class="btn btn-primary editar">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                        <div class="modal fade" id="myModalInsertactividades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Inserta Actividad</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addFormAct">
+                                        <input type="hidden" id="edIdActividadaAct" name="idActividad" />
+                                        <input type="hidden" name="ruta" value="actividades"/>
+                                        <input type="hidden" name="accion" value="insertActividades"/>
+                                        <div class="form-group">
+                                            <label>Titulo</label>
+                                            <input id="addTituloAct" class="form-control" name="titulo"/>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Grupos</label>
+                                            <select id="addListaGruposAct" name="IdGrupo" class="form-control">
+                                              
+                                            </select>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Profesores</label>
+                                            <select id="addListaProfesoresAct" name="idProfesor" class="form-control">
+                                              
+                                            </select>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                             <label>Fecha de Inicio</label>
+                                            <div class='input-group date' id='datetimepicker8'>
+                                                <input type='text' class="form-control" name="horaInicio"/>
+                                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Fecha de Fin</label>
+                                            <div class='input-group date' id='datetimepicker9'>
+                                                <input type='text' class="form-control" name="horaFinal"/>
+                                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen</label>
+                                            <input type="file" id="addFileAct" class="form-control" name="imagen"/>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mapa</label>
+                                            <div id="mapaModalInsert" >
+
+                                            </div>
+                                            <input type="hidden" id="addLatitudAct" name="latitud" />
+                                            <input type="hidden" id="addLongitudAct" name="longitud" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion</label>
+                                            <textarea id="addDescripcionAct" name="descripcion" class="form-control" cols="50" row="8" aria-required="true">
+                                            
+                                            </textarea>
+                                            <p class="help-block"></p>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button  type="button" class="btn btn-primary btadd">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                        <!-- Modal --><!-- Este modal es el mapa que se verá de cada actividad -->
+                        <div class="modal fade" id="myModalMap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Mapa de la actividad</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="mapaContainer">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+
+        <!-- jQuery -->
+        <script src="estilo/vendor/jquery/jquery.min.js" defer></script>
+
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="estilo/vendor/bootstrap/js/bootstrap.min.js" defer></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="estilo/vendor/metisMenu/metisMenu.min.js" defer></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="estilo/dist/js/sb-admin-2.js" defer></script>
+
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO4rDIlDvmMEJhJ3M6qqE7VSiGBBq5Tuk"></script>
+
+        <script type="text/javascript" src="estilo/vendor/bootstrap-datetimepicker/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="estilo/vendor/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js" defer></script>
+        <!-- Scripts -->
+        <script src="js/profesor.js" defer></script>
+         <script src="js/login.js" defer></script>
+        <script src="js/admin.js" defer></script>
+        <script src="js/mapas.js" defer></script>
+     
+
+</body>
+
+</html>

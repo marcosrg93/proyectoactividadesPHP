@@ -1,0 +1,257 @@
+/*$('#btnMostrarMapa').on('click', function(){
+        function correcto(){
+            var longitud =parseFloat($(this).data('longitud')); /*#dataTables-example > tbody > tr > td:nth-child(6) > div*/
+            /*var latitud =parseFloat($(this).data('latitud')); /*#dataTables-example > tbody > tr > td:nth-child(6) > div*/
+            /*alert(latitud);
+            alert(longitud);
+            /*var tuPosicion = {latitude: latitud, longitude: longitud};
+            crearMapa(tuPosicion);*/
+        /*}
+    
+        /*function crearMapa(posicion){
+            var coordenadas = {lat: posicion.latitude, lng: posicion.longitude};
+            var mapOptions = {
+                zoom: 15,
+                center: coordenadas,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var contenedor = document.getElementsByClassName('mapa');
+            var mapa = new google.maps.Map(contenedor, mapOptions);
+            añadirMarcador(mapa, coordenadas);
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(mapa);
+        }
+        
+        function añadirMarcador(mapa, posicion){
+            var opcionesMarker = {
+                position: posicion,
+                map: mapa
+            };
+            var marcador = new google.maps.Marker(opcionesMarker);
+    
+            var opcionesVentanaInfo = {
+                content: 'Este es nuestro centro educativo.',
+                position: posicion
+            };
+        }
+    
+        function error(error){
+            $('#posicion').text(error.code + ' - ' + error.message);
+        }
+    
+        var opciones = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+    
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(correcto, error, opciones);
+        }else{
+            alert ('Geolocalización no disponible.');
+        }*/
+    /*});*/
+    
+    /*function mapeadoActividades(){
+        setTimeout(function(){
+            /*function calcularDistancia(coordenadasOrigen, coordenadasDestino){
+                var radianesLatInicio = gradosRadianes(coordenadasOrigen.latitude);
+                var radianesLongInicio = gradosRadianes(coordenadasOrigen.longitude);
+                var radianesLatDestino = gradosRadianes(coordenadasDestino.latitude);
+                var radianesLongDestino = gradosRadianes(coordenadasDestino.longitude);
+                var Radio = 6371; // radio de la Tierra en Km
+                var distancia = Math.acos(Math.sin(radianesLatInicio) * Math.sin(radianesLatDestino) + Math.cos(radianesLatInicio) * Math.cos(radianesLatDestino) * Math.cos(radianesLongInicio - radianesLongDestino)) * Radio;
+                return Math.round(distancia * 100) / 100;
+            }
+        
+            function gradosRadianes(grados){
+                var radianes = (grados * Math.PI) / 180;
+                return radianes;
+            }*/
+            
+            /*Función para el mapa de las actividades----------------------------------------------------------------------------------------------------*/
+            /*function correcto(){
+                var longitud =parseFloat($('#dataTables-example > tbody > tr > td:nth-child(6) > div').data('longitud'));
+                var latitud =parseFloat($('#dataTables-example > tbody > tr > td:nth-child(6) > div').data('latitud'));
+                alert(latitud);
+                alert(longitud);
+                var tuPosicion = {latitude: latitud, longitude: longitud};
+                crearMapa(tuPosicion);
+            }
+        
+            function crearMapa(posicion){
+                var coordenadas = {lat: posicion.latitude, lng: posicion.longitude};
+                var mapOptions = {
+                    zoom: 15,
+                    center: coordenadas,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var contenedor = document.getElementsByClassName('mapa');
+                var mapa = new google.maps.Map(contenedor, mapOptions);
+                añadirMarcador(mapa, coordenadas);
+                var trafficLayer = new google.maps.TrafficLayer(); /*transitLayer - bikeLayer*/
+            /*    trafficLayer.setMap(mapa);
+            }
+            
+            function añadirMarcador(mapa, posicion){
+                var opcionesMarker = {
+                    position: posicion,
+                    map: mapa,
+                    title: 'I·E·S Zaidin-Vergeles',
+                    clickable: true
+                };
+                var marcador = new google.maps.Marker(opcionesMarker);
+        
+                var opcionesVentanaInfo = {
+                    content: 'Este es nuestro centro educativo.',
+                    position: posicion
+                };
+                var ventanaInfo = new google.maps.InfoWindow(opcionesVentanaInfo);
+                google.maps.event.addListener(marcador, "click", function () {
+                    ventanaInfo.open(mapa);
+                });
+            }
+        
+            function error(error){
+                $('#posicion').text(error.code + ' - ' + error.message);
+            }
+        
+            var opciones = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+        
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(correcto, error, opciones);
+            }else{
+                alert ('Geolocalización no disponible.');
+            }
+        }, 3000);
+    }
+    
+    function mapeadoActividadesModal(){
+        setTimeout(function(){
+            var marcadorMod = null;
+    
+            function crearMapaMod(posicion){
+                var coordenadas = {lat: posicion.latitude, lng: posicion.longitude};
+                var mapOptions = {
+                    zoom: 18,
+                    center: coordenadas,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var contenedor = document.getElementById('mapaModal');
+                var mapaMod = new google.maps.Map(contenedor, mapOptions);
+                añadirMarcadorMod(mapaMod, coordenadas);
+                var trafficLayer = new google.maps.TrafficLayer(); /*transitLayer - bikeLayer*/
+            /*    trafficLayer.setMap(mapaMod);
+                google.maps.event.addListener(mapaMod, "click", function (evento) {
+                    añadirMarcadorMod(mapaMod, evento.latLng);
+                });
+            }
+            
+            function añadirMarcadorMod(mapaMod, posicion){
+                var opcionesMarker = {
+                    position: posicion,
+                    map: mapaMod
+                };
+                if(marcadorMod != null){
+                    marcadorMod.setPosition(null);
+                }
+                
+                marcadorMod = new google.maps.Marker(opcionesMarker);
+                mapaMod.panTo(posicion);
+                $('#lat').val(posicion.lat);
+                $('#lng').val(posicion.lng);
+            }
+            
+            function correctoMod(){
+                var longitud = parseFloat($('#mapaModal').data('longitud'));
+                var latitud = parseFloat($('#mapaModal').data('latitud'));
+                var posicion = {latitude: latitud, longitude: longitud};
+                crearMapaMod(posicion);
+            }
+            
+            function errorMod(error){
+                $('#posicion').text(error.code + ' - ' + error.message);
+            }
+        
+            var opciones = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+        
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(correctoMod, errorMod, opciones);
+            }else{
+                alert ('Geolocalización no disponible.');
+            }
+        }, 3000);
+    }
+    
+    function mapeadoActividadesAniadir(){
+        setTimeout(function(){
+            var marcador = null;
+    
+            function crearMapa(posicion){
+                var coordenadas = {lat: posicion.latitude, lng: posicion.longitude};
+                var mapOptions = {
+                    zoom: 10,
+                    center: coordenadas,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var contenedor = document.getElementById('mapaModalInsert');
+                var mapa = new google.maps.Map(contenedor, mapOptions);
+                añadirMarcador(mapa, coordenadas);
+                var trafficLayer = new google.maps.TrafficLayer();
+                trafficLayer.setMap(mapa);
+                google.maps.event.addListener(mapa, "click", function (evento) {
+                    añadirMarcador(mapa, evento.latLng);
+                });
+            }
+            
+            function añadirMarcador(mapa, posicion){
+                var opcionesMarker = {
+                    position: posicion,
+                    map: mapa
+                };
+                if(marcador != null){
+                    marcador.setPosition(null);
+                }
+                
+                marcador = new google.maps.Marker(opcionesMarker);
+                mapa.panTo(posicion);
+                $('#lat').val(posicion.lat);
+                $('#lng').val(posicion.lng);
+            }
+            
+            function correcto(){
+                var longitud = 37.161490;
+                var latitud = -3.591335;
+                var posicion = {latitude: latitud, longitude: longitud};
+                crearMapa(posicion);
+            }
+            
+            function error(error){
+                $('#posicion').text(error.code + ' - ' + error.message);
+            }
+        
+            var opciones = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+        
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(correcto, error, opciones);
+            }else{
+                alert ('Geolocalización no disponible.');
+            }
+        }, 3000);
+    }
+    
+    $('#btAniadir').on('click', mapeadoActividadesAniadir);*/
+    /*$('#btActividad').on('click', mapeadoActividades);*/
+    //$(document).ready(mapeadoActividades);
